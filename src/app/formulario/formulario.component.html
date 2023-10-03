@@ -1,0 +1,28 @@
+<div class="container">
+   <h2>Formulario de Registro</h2>
+   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+         <label for="nombre">Nombre:</label>
+         <input type="text" id="nombre" class="form-control" formControlName="nombre">
+         <div *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched" class="text-danger">
+            {{ getErrorMessage('nombre') }}
+         </div>
+      </div>
+      <div class="form-group">
+         <label for="email">Email:</label>
+         <input type="email" id="email" class="form-control" formControlName="email">
+         <div *ngIf="formulario.get('email')?.invalid && formulario.get('email')?.touched" class="text-danger">
+            {{ getErrorMessage('email') }}
+         </div>
+      </div>
+      <div class="form-group">
+         <label for="contraseña">Contraseña:</label>
+         <input type="password" id="contraseña" class="form-control" formControlName="contraseña">
+         <div *ngIf="formulario.get('contraseña')?.invalid && formulario.get('contraseña')?.touched" class="text-danger">
+            {{ getErrorMessage('contraseña') }}
+         </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+   </form>
+</div>
+
